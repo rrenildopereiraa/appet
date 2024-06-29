@@ -12,6 +12,7 @@ namespace Clinic
         {
             InitializeComponent();
             animals = new List<Animal>();
+            clients = new List<Client>();
             LoadData();
             LoadClients();
         }
@@ -87,7 +88,7 @@ namespace Clinic
                 {
                     selectedAnimal.Name = nameInp.Text;
                     selectedAnimal.Species = speciesInp.Text;
-                    selectedAnimal.Owner = (ownerCb.SelectedItem as Client)?.Name;
+                    selectedAnimal.Owner = (ownerCb.SelectedItem as Client).Name;
 
                     SaveData();
                     RefreshAnimalList();
@@ -181,7 +182,7 @@ namespace Clinic
             {
                 nameInp.Text = selectedAnimal.Name;
                 speciesInp.Text = selectedAnimal.Species;
-                ownerCb.SelectedItem = clients.Find(c => c.Name == selectedAnimal.Owner);
+                ownerCb.SelectedItem = clients.FirstOrDefault(c => c.Name == selectedAnimal.Owner);
             }
         }
     }
