@@ -14,13 +14,17 @@ namespace Clinic
         }
 
         /// <summary>
-        /// Redireciona para o repositório GitHub numa nova jenela de um nabegador Web.
+        /// Redireciona para o repositório GitHub numa nova janela de um navegador Web.
         /// </summary>
         /// <param name="sender">Utilizador</param>
         /// <param name="e">Evento</param>
         private void githubBtn_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo si = new ProcessStartInfo("https://github.com/rrenildopereiraa/appet");
+            ProcessStartInfo si = new ProcessStartInfo
+            {
+                FileName = "https://github.com/rrenildopereiraa/appet",
+                UseShellExecute = true
+            };
             Process.Start(si);
         }
     }
