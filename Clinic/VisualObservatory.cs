@@ -20,13 +20,20 @@ namespace Clinic
 
             foreach (var rowData in data)
             {
-                observatories.Add(new Observatory
+                if (int.TryParse(rowData[0], out int id) && int.TryParse(rowData[3], out int telescopesCount))
                 {
-                    Id = Convert.ToInt32(rowData[0]),
-                    Name = rowData[1],
-                    Location = rowData[2],
-                    TelescopesCount = Convert.ToInt32(rowData[3])
-                });
+                    observatories.Add(new Observatory
+                    {
+                        Id = id,
+                        Name = rowData[1],
+                        Location = rowData[2],
+                        TelescopesCount = telescopesCount
+                    });
+                }
+                else
+                {
+                    MessageBox.Show("There was an error loading the observatory data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
             RefreshObservatoryList();
