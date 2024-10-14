@@ -201,9 +201,21 @@ namespace Clinic
                 clientCb.SelectedItem = clients.FirstOrDefault(c => c.Name == selectedAppointment.ClientName);
                 vetCb.SelectedItem = vets.FirstOrDefault(v => v.Name == selectedAppointment.VetName);
 
-                dateInp.Value = selectedAppointment.AppointmentDateTime;
+                Console.WriteLine(selectedAppointment.AppointmentDateTime);
+
+                if (selectedAppointment.AppointmentDateTime < dateInp.MinDate ||
+                    selectedAppointment.AppointmentDateTime > dateInp.MaxDate)
+                {
+                    dateInp.Value = DateTime.Now;
+                }
+                else
+                {
+                    dateInp.Value = selectedAppointment.AppointmentDateTime;
+                }
+
                 notesInp.Text = selectedAppointment.Notes;
             }
         }
+
     }
 }
