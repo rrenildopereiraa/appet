@@ -126,9 +126,9 @@
             paragraphLbl.ForeColor = Color.FromArgb(118, 132, 153);
             paragraphLbl.Location = new Point(288, 83);
             paragraphLbl.Name = "paragraphLbl";
-            paragraphLbl.Size = new Size(333, 38);
+            paragraphLbl.Size = new Size(306, 38);
             paragraphLbl.TabIndex = 2;
-            paragraphLbl.Text = "Pawlinic enables the user to operate\r\ntypical clinic functions.";
+            paragraphLbl.Text = "Appet enables the user to operate\r\ntypical clinic functions.";
             // 
             // introductionLbl
             // 
